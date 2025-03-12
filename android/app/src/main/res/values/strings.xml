@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">anifinder</string>
+    <string name="title_activity_main">anifinder</string>
+    <string name="package_name">ionic.anifinder</string>
+    <string name="custom_url_scheme">ionic.anifinder</string>
+</resources>
