@@ -50,6 +50,7 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@angular/service-worker": "^19.0.0",
     "@capacitor/android": "7.0.1",
     "@capacitor/app": "7.0.0",
     "@capacitor/core": "7.0.1",
@@ -107,8 +108,8 @@
     "typescript": "~5.6.3"
   },
   "engines": {
-    "node": "^20.11.1",
-    "npm": "^10.0.0"
+    "node": "^22.13.1",
+    "npm": "^10.9.2"
   },
   "browserslist": [
     "Chrome >=79",
