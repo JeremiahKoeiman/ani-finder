@@ -1,22 +1,89 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
+  "plugins": ["unused-imports", "simple-import-sort"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
   "overrides": [
     {
       "files": ["*.ts"],
-      "parserOptions": {
-        "project": ["tsconfig.json"],
-        "createDefaultProgram": true
-      },
       "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
-        "@angular-eslint/component-class-suffix": [
+        "import/prefer-default-export": "off",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+        "max-len": ["error", 140],
+        "simple-import-sort/imports": "off",
+        "simple-import-sort/exports": "off",
+        "arrow-body-style": "off",
+        "linebreak-style": "off",
+        "implicit-arrow-linebreak": "off",
+        "class-methods-use-this": "off",
+        // eslint-plugin-unused-imports rules
+        "unused-imports/no-unused-imports": "error",
+
+        "unused-imports/no-unused-vars": [
+          "warn",
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
+          }
+        ],
+        "import/extensions": [
+          "off",
+          "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ],
+        // TypeScript Eslint rules
+        "@typescript-eslint/indent": ["error", 2],
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/lines-between-class-members": "off",
+        "@typescript-eslint/explicit-member-accessibility": [
           "error",
           {
-            "suffixes": ["Page", "Component"]
+            "accessibility": "explicit",
+            "overrides": {
+              "constructors": "no-public"
+            }
+          }
+        ],
+        "@typescript-eslint/quotes": ["error", "single"],
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/no-explicit-any": 2,
+        "@typescript-eslint/no-inferrable-types": [
+          "error",
+          {
+            "ignoreParameters": false,
+            "ignoreProperties": false
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": ["error", {}],
+        // Angular ESLint rules
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
           }
         ],
         "@angular-eslint/component-selector": [
@@ -27,20 +94,23 @@
             "style": "kebab-case"
           }
         ],
-        "@angular-eslint/directive-selector": [
+        "@angular-eslint/component-class-suffix": [
           "error",
           {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
+            "suffixes": ["Page", "Component"]
           }
         ]
       }
     },
     {
+      "files": ["*.spec.ts", "playwright.config.ts", "e2e/**/*.ts"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
       "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
+      "extends": ["plugin:@angular-eslint/template/recommended"]
     }
   ]
 }
