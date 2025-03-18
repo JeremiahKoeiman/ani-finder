@@ -7,6 +7,9 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "strict": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -22,6 +25,7 @@
     "useDefineForClassFields": false,
     "paths": {
       "#utilities/*": ["src/app/core/utilities/*"],
+      "#domain/*": ["src/app/core/domain/*"],
       "#environment": ["src/environments/environment.ts"]
     }
   },
