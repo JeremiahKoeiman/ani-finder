@@ -8,10 +8,12 @@ import { search } from 'ionicons/icons';
 import { AnimeService } from '#domain/anime/anime.service';
 import { base64toBlob } from '#utilities/converters/base64-to-blob';
 
+import { SheetComponent } from './features/components/sheet/sheet.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  imports: [IonApp, IonButton, IonIcon]
+  imports: [IonApp, IonButton, IonIcon, SheetComponent]
 })
 export class AppComponent {
   private readonly animeService = inject(AnimeService);
