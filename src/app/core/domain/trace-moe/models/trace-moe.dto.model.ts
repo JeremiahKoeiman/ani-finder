@@ -5,7 +5,7 @@ export interface ApiResultDto {
 }
 
 export interface TraceMoeResultDto {
-  anilist: AnilistResultDto;
+  anilist: TraceMoeAnilistResultDto;
   filename: string;
   episode: number | null;
   from: number;
@@ -15,15 +15,15 @@ export interface TraceMoeResultDto {
   image: string;
 }
 
-export interface AnilistResultDto {
+export interface TraceMoeAnilistResultDto {
   id: number;
   idMal: number;
-  title: AniListTitleDto;
+  title: TraceMoeAniListTitleDto;
   synonyms: string[];
   isAdult: boolean;
 }
 
-export interface AniListTitleDto {
+export interface TraceMoeAniListTitleDto {
   native: string;
   romaji: string;
   english: string | null;

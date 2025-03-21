@@ -1,4 +1,4 @@
-import { ApiResultDto } from '#domain/trace-moe/api.dto.model';
+import { ApiResultDto } from '#domain/trace-moe/models/trace-moe.dto.model';
 
 import { TraceMoe } from '../models/trace-moe.model';
 
@@ -13,7 +13,7 @@ import { TraceMoe } from '../models/trace-moe.model';
  * TODO: Allow the user to choose which option is the most accurate
  *
  * */
-export const mapApiResultToTraceMoe = (apiResult: ApiResultDto['result']): TraceMoe => {
+export const mapTraceMoeApiResultToTraceMoe = (apiResult: ApiResultDto['result']): TraceMoe => {
   if (!apiResult.length) {
     throw new Error('No anime results found.');
   }
