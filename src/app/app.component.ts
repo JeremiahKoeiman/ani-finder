@@ -35,6 +35,8 @@ export class AppComponent {
 
     console.log('BLOB', image);
 
-    this.animeService.search(image, contentType).subscribe(res => console.log('openCameraOrPickImage', res));
+    this.animeService.findAnime(image, contentType).subscribe(res => console.log('openCameraOrPickImage', res));
+
+    // this.animeService.find(image, contentType).subscribe(res => console.log('openCameraOrPickImage', res));
   }
 }
