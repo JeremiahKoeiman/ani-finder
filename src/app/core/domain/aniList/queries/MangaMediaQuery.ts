@@ -4,7 +4,6 @@ export default `
       id
       description
       coverImage {
-        large
         extraLarge
       }
       title {
@@ -12,6 +11,7 @@ export default `
         native
         romaji
       }
+      siteUrl
     }
   }
 `;
