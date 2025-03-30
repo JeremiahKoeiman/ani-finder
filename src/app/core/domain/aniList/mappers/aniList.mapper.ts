@@ -1,7 +1,6 @@
 import { AniListDto } from '../models/aniList.dto.model';
 import { AniList } from '../models/aniList.model';
 
-import { mapAniListCoverImageDtoToAniListCoverImage } from './cover-image.mapper';
 import { mapAniListTitleDtoToAniListTitle } from './title.mapper';
 
 export const mapAniListDtoToAniList = (data: AniListDto['data']): AniList => {
@@ -9,6 +8,7 @@ export const mapAniListDtoToAniList = (data: AniListDto['data']): AniList => {
     id: data.Media.id,
     description: data.Media.description,
     title: mapAniListTitleDtoToAniListTitle(data.Media.title),
-    coverImage: mapAniListCoverImageDtoToAniListCoverImage(data.Media.coverImage)
+    coverImage: data.Media.coverImage.extraLarge,
+    url: data.Media.siteUrl
   } satisfies AniList;
 };

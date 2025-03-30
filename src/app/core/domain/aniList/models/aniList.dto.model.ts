@@ -9,6 +9,7 @@ export interface MediaDto {
     description: string;
     title: AniListTitleDto;
     coverImage: AniListCoverImageDto;
+    siteUrl: string;
   };
 }
 
@@ -19,7 +20,6 @@ export interface AniListTitleDto {
 }
 
 export interface AniListCoverImageDto {
-  large: string;
   extraLarge: string;
 }
 
