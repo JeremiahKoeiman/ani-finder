@@ -14,12 +14,18 @@ import { notUndefined } from '#utilities/predicates/not-null-undefined';
 import { mapTraceMoeApiResultToTraceMoe } from '../trace-moe/mappers/api-result-to-trace-moe.mapper';
 import { TraceMoe } from '../trace-moe/models/trace-moe.model';
 
+import { AnimeStateService } from './anime-state.service';
+
 @Injectable({ providedIn: 'root' })
 export class AnimeService {
   private readonly httpClient = inject(HttpClient);
+  private readonly animeStateService = inject(AnimeStateService);
 
-  public findAnime(image: Blob, contentType: string): Observable<TraceMoe> {
-    return this.findAnimeOrMangaBasedOnImage(image, contentType).pipe(switchMap(data => this.fetchAnilistAnimeData(data.id)));
+  public findAnime(image: Blob, contentType: string): Observable<AniList> {
+    return this.findAnimeOrMangaBasedOnImage(image, contentType).pipe(
+      switchMap(data => this.fetchAnilistAnimeData(data.id)),
+      tap((anime: AniList) => this.animeStateService.setState(anime))
+    );
   }
 
   private findAnimeOrMangaBasedOnImage(image: Blob, contentType: string): Observable<TraceMoe> {
@@ -57,8 +63,7 @@ export class AnimeService {
       )
       .pipe(
         catchError(err => throwError(() => err)), //TODO: display error message
-        map(dto => mapAniListDtoToAniList(dto.data)),
-        tap(res => console.log('fetchAnilistData', res))
+        map(dto => mapAniListDtoToAniList(dto.data))
       );
   }
 }
