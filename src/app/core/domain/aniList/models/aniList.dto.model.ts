@@ -9,6 +9,7 @@ export interface MediaDto {
     description: string;
     title: AniListTitleDto;
     coverImage: AniListCoverImageDto;
+    bannerImage: string;
     siteUrl: string;
   };
 }

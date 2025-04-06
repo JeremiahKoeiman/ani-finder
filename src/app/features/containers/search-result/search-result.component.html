@@ -1,0 +1,22 @@
+@if (searchResult$ | async; as searchResult) {
+  <ion-header class="ion-no-border relative" [translucent]="true" collapse="fade">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="absolute top-0" color="light" [fullscreen]="true" [forceOverscroll]="true">
+    <div class="bg-fixed bg-no-repeat bg-center bg-cover h-1/5" [style.backgroundImage]="'url(' + searchResult.bannerImage + ')'"></div>
+
+    <div class="ion-padding">
+      <div class="flex flex-col gap-y-4 mb-4">
+        <div class="flex gap-x-4 justify-center items-start">
+          <img class="w-[60%] rounded-md" [src]="searchResult.coverImage" />
+          <h5 class="text-gray-200">{{ searchResult.title.english }}</h5>
+        </div>
+      </div>
+      <p>{{ searchResult.description }}</p>
+    </div>
+  </ion-content>
+}

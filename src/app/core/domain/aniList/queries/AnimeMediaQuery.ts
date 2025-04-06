@@ -6,6 +6,7 @@ export default `
       coverImage {
         extraLarge
       }
+      bannerImage
       title {
         english
         native

@@ -3,6 +3,7 @@ export interface AniList {
   description: string;
   title: AniListTitle;
   coverImage: string;
+  bannerImage: string;
   url: string;
 }
 

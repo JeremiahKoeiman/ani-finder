@@ -9,6 +9,7 @@ export const mapAniListDtoToAniList = (data: AniListDto['data']): AniList => {
     description: data.Media.description,
     title: mapAniListTitleDtoToAniListTitle(data.Media.title),
     coverImage: data.Media.coverImage.extraLarge,
+    bannerImage: data.Media.bannerImage,
     url: data.Media.siteUrl
   } satisfies AniList;
 };
